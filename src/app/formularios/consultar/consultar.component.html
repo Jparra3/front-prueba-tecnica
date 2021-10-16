@@ -1,0 +1,72 @@
+
+<mat-card class="container">
+  <mat-card-content>
+
+    <mat-grid-list cols="4" rowHeight="80px">
+      <mat-grid-tile>
+        <app-input-text
+          class="input"
+          [name]="form.email.name"
+          [value]="form.email.value"
+          [label]="form.email.label"
+          [messages]="form.email.messages"
+          [upperCase]="true"
+          (valueChange)="helpers.setData(form, form.email.name, $event)"
+          [style]="'width: 200px;'"
+        ></app-input-text>
+
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <app-input-text
+          class="input"
+          [name]="form.usuario.name"
+          [value]="form.usuario.value"
+          [label]="form.usuario.label"
+          [messages]="form.usuario.messages"
+          [upperCase]="true"
+          (valueChange)="helpers.setData(form, form.usuario.name, $event)"
+          [style]="'width: 200px; margin-right: 5px;'"
+        ></app-input-text>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <app-input-text
+          class="input"
+          [name]="form.nombres.name"
+          [value]="form.nombres.value"
+          [label]="form.nombres.label"
+          [messages]="form.nombres.messages"
+          [upperCase]="true"
+          (valueChange)="helpers.setData(form, form.nombres.name, $event)"
+          [style]="'width: 200px; margin-right: 5px;'"
+        ></app-input-text>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <app-input-text
+        class="input"
+        [name]="form.apellidos.name"
+        [value]="form.apellidos.value"
+        [label]="form.apellidos.label"
+        [messages]="form.apellidos.messages"
+        [upperCase]="true"
+        (valueChange)="helpers.setData(form, form.apellidos.name, $event)"
+        [style]="'width: 200px; margin-right: 5px;'"
+        ></app-input-text>
+      </mat-grid-tile>
+
+
+    </mat-grid-list>
+
+  </mat-card-content>
+
+  <div style="text-align: right;">
+    <button mat-fab color="primary" aria-label="adicionar" matTooltip="Nuevo" (click)="openModalRegistro()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-fab color="primary" aria-label="consultar" matTooltip="Consultar">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+</mat-card>
