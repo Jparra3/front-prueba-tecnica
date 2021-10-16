@@ -12,7 +12,7 @@ export class InputTextComponent implements OnInit {
   @Input() name: any;
   @Input() messages: any;
   @Input() style: any;
-  @Input() disable = false;
+  @Input() disabled = false;
   @Input() required = false;
   @Input() length: any;
   @Input() upperCase = false;

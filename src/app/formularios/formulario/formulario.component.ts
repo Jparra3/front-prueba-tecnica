@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Usuarios } from 'src/app/shared/usuarios';
 import { TablaComponent } from '../tabla/tabla.component';
+
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -23,7 +24,17 @@ export class FormularioComponent implements OnInit {
 
   setDataUsuarios (value: any): void{
     if(value.success){
-      this.dataUsuarios.push(value.data);
+
+      if(value.editable){
+        this.dataUsuarios[value.index].usuario = value.data.usuario;
+        this.dataUsuarios[value.index].email = value.data.email;
+        this.dataUsuarios[value.index].nombres = value.data.nombres;
+        this.dataUsuarios[value.index].apellidos = value.data.apellidos;
+        this.dataUsuarios[value.index].estado = value.data.estado;
+
+      }else{
+        this.dataUsuarios.push(value.data);
+      }
 
       this.tablaComponent.init(this.dataUsuarios);
     }

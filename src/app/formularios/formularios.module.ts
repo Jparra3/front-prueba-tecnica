@@ -15,7 +15,7 @@ import { ModalNuevoUsuarioComponent } from './modal-nuevo-usuario/modal-nuevo-us
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {FormsModule} from '@angular/forms';
-import { ModalVerUsuarioComponent } from './modal-ver-usuario/modal-ver-usuario.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,6 @@ import { ModalVerUsuarioComponent } from './modal-ver-usuario/modal-ver-usuario.
     FormularioComponent,
     TablaComponent,
     ModalNuevoUsuarioComponent,
-    ModalVerUsuarioComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +36,8 @@ import { ModalVerUsuarioComponent } from './modal-ver-usuario/modal-ver-usuario.
     MatButtonModule,
     MatDialogModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatSlideToggleModule
   ],
   exports:[
   ]

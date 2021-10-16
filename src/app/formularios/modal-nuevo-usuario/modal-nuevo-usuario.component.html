@@ -7,6 +7,7 @@
         [value]="form.email.value"
         [label]="form.email.label"
         [messages]="form.email.messages"
+        [disabled]="readOnly"
         (valueChange)="helpers.setData(form, form.email.name, $event)"
         [style]="'width: 200px;'"
       ></app-input-text>
@@ -19,6 +20,7 @@
         [value]="form.usuario.value"
         [label]="form.usuario.label"
         [messages]="form.usuario.messages"
+        [disabled]="readOnly"
         (valueChange)="helpers.setData(form, form.usuario.name, $event)"
         [style]="'width: 200px; margin-right: 5px;'"
       ></app-input-text>
@@ -31,6 +33,7 @@
         [value]="form.nombres.value"
         [label]="form.nombres.label"
         [messages]="form.nombres.messages"
+        [disabled]="readOnly"
         (valueChange)="helpers.setData(form, form.nombres.name, $event)"
         [style]="'width: 200px; margin-right: 5px;'"
       ></app-input-text>
@@ -43,15 +46,16 @@
       [value]="form.apellidos.value"
       [label]="form.apellidos.label"
       [messages]="form.apellidos.messages"
+      [disabled]="readOnly"
       (valueChange)="helpers.setData(form, form.apellidos.name, $event)"
       [style]="'width: 200px; margin-right: 5px;'"
       ></app-input-text>
     </mat-grid-tile>
 
-    <mat-grid-tile>
+    <mat-grid-tile *ngIf="!editable">
       <mat-form-field appearance="fill">
         <mat-label>{{form.estado.label}}</mat-label>
-        <mat-select [(ngModel)]="form.estado.value"
+        <mat-select [(ngModel)]="form.estado.value" [disabled]="readOnly"
               (valueChange)="helpers.setData(form, form.estado.name, $event);"
               style="padding-top: 5px;padding-bottom: 5px;">
           <mat-option *ngFor="let value of dataControls" [value]="value.value">
@@ -62,10 +66,23 @@
       </mat-form-field>
     </mat-grid-tile>
 
+    <mat-grid-tile *ngIf="editable">
+      <section class="example-section">
+        <mat-slide-toggle
+            class="example-margin"
+            [color]="'accent'"
+            [(ngModel)]="form.estado.value"
+            (valueChange)="helpers.setData(form, form.estado.name, $event);"
+            [checked]="form.estado.value">
+          {{ form.estado.value ? 'Activo': 'Inactivo' }}
+        </mat-slide-toggle>
+      </section>
+    </mat-grid-tile>
+
   </mat-grid-list>
 
   <div style="text-align: right;">
-    <button mat-flat-button color="primary" style="margin-right: 10px;" (click)="guardar()">Guardar</button>
+    <button *ngIf="!readOnly" mat-flat-button color="primary" style="margin-right: 10px;" (click)="guardar()">Guardar</button>
     <button mat-flat-button color="primary" (click)="close()">Cancelar</button>
   </div>
 
