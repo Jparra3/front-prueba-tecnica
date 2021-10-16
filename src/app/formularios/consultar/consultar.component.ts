@@ -23,9 +23,9 @@ export class ConsultarComponent implements OnInit {
   openModalRegistro(){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '90vw';
-    dialogConfig.height = '50vh';
+    dialogConfig.height = '80vh';
     dialogConfig.maxWidth = '90vw';
-    dialogConfig.maxHeight = '50vh';
+    dialogConfig.maxHeight = '80vh';
     dialogConfig.hasBackdrop = false;
     dialogConfig.data = {};
 
@@ -33,7 +33,7 @@ export class ConsultarComponent implements OnInit {
     dialogRef.afterClosed().subscribe(async (result) => {
       if(result != undefined){
         if (result.success) {
-          this.valueChange.emit(['reload', result.data]);
+          this.valueChange.emit(result);
         }
       }
     });

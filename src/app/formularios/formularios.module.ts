@@ -13,14 +13,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { ModalNuevoUsuarioComponent } from './modal-nuevo-usuario/modal-nuevo-usuario.component';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule} from '@angular/forms';
+import { ModalVerUsuarioComponent } from './modal-ver-usuario/modal-ver-usuario.component';
 
 @NgModule({
   declarations: [
     ConsultarComponent,
     FormularioComponent,
     TablaComponent,
-    ModalNuevoUsuarioComponent
+    ModalNuevoUsuarioComponent,
+    ModalVerUsuarioComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatTooltipModule,
     MatIconModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    FormsModule
   ],
   exports:[
   ]

@@ -3,5 +3,5 @@ export interface Usuarios {
   email: string;
   nombres: string;
   apellidos: string;
-  activo: boolean;
+  estado: boolean;
 }

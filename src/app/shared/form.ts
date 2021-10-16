@@ -4,27 +4,34 @@ export class Form {
     name: 'email',
     value: null,
     messages: null,
-    required: false,
+    required: true,
   };
   usuario = {
     label: 'Usuario',
     name: 'usuario',
     value: null,
     messages: null,
-    required: false,
+    required: true,
   };
   nombres = {
     label: 'Nombres',
     name: 'nombres',
     value: null,
     messages: null,
-    required: false,
+    required: true,
   };
   apellidos = {
     label: 'Apellidos',
     name: 'apellidos',
     value: null,
     messages: null,
-    required: false,
+    required: true,
+  };
+  estado = {
+    label: 'Estado',
+    name: 'estado',
+    value: null,
+    messages: null,
+    required: true,
   }
 }

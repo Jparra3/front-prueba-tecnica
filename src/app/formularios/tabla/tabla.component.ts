@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 import { Usuarios } from 'src/app/shared/usuarios';
 // const ELEMENT_DATA: PeriodicElement[] = [];
 
@@ -15,12 +14,18 @@ export class TablaComponent implements OnInit {
   data: Usuarios[] = [];
 
   @Input() set setData(data: Usuarios[]){
-    // console.log(data);
     this.init(data);
   }
 
-  displayedColumns: string[] = ['usuario','email','nombres','apellidos','activo','acciones'];
-  dataSource = this.data;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  displayedColumns: string[] = ['usuario','email','nombres','apellidos','estado','acciones'];
+  // dataSource = null;
+  public dataSource = new MatTableDataSource<Usuarios>([]);
+  @ViewChild(MatPaginator) private paginator: MatPaginator;
+
 
   constructor() { }
 
@@ -28,7 +33,8 @@ export class TablaComponent implements OnInit {
   }
 
   init(data: Usuarios[]): void{
-    this.dataSource = data;
+    this.dataSource.data = data;
+    this.dataSource.paginator = this.paginator;
   }
 
 
